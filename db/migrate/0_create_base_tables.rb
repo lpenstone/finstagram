@@ -1,4 +1,4 @@
-class CreateBaseTables < ActiveRecord::Migration[4.2]
+class CreateBaseTables < ActiveRecord::Migration
 
   def change
     create_table :users do |t|
@@ -9,7 +9,7 @@ class CreateBaseTables < ActiveRecord::Migration[4.2]
       t.timestamps
     end
 
-    create_table :finstagram_posts do |t|
+    create_table :posts do |t|
       t.references :user
       t.string :photo_url
       t.timestamps
@@ -17,14 +17,14 @@ class CreateBaseTables < ActiveRecord::Migration[4.2]
 
     create_table :comments do |t|
       t.references :user
-      t.references :finstagram_post
+      t.references :post
       t.text :text
       t.timestamps
     end
 
     create_table :likes do |t|
       t.references :user
-      t.references :finstagram_post
+      t.references :post
       t.timestamps
     end
 

@@ -1,0 +1,13 @@
+<% if current_user %>
+  <div class="new-post">
+    <a href="/posts/new" class="button">New Post</a>
+  </div>
+<% end %>
+
+<div class="posts-wrap">
+  <% @posts.each do |post| %>
+    <div class="post-card">
+      <%= erb :'shared/post', locals: { post: post, show_comment_form: false  } %>
+    </div>
+  <% end %>
+</div>
